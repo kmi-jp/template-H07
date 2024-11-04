@@ -13,7 +13,7 @@ user 4,Ludek Skocil,50000,1100"""
 
     data = DataFrame.from_csv(filepath=csv_file)
 
-    assert data.columns.labels == ["names", "salary", "cash flow"]
+    assert data.index.labels == ["names", "salary", "cash flow"]
 
     assert list(data.values[0].values) == list(
         ["Lukas Novak", "Petr Pavel", "Pavel Petr", "Ludek Skocil"]

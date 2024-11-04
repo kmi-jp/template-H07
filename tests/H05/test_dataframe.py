@@ -28,19 +28,19 @@ def cash_flow(users):
 
 
 @pytest.fixture
-def columns():
+def index():
     return Index(["names", "salary", "cash flow"])
 
 
-def test_str_repr(names, salaries, cash_flow, columns):
-    data = DataFrame([names, salaries, cash_flow], columns=columns)
+def test_str_repr(names, salaries, cash_flow, index):
+    data = DataFrame([names, salaries, cash_flow], index=index)
 
     assert str(data) == "DataFrame(4, 3)"
     assert repr(data) == "DataFrame(4, 3)"
 
 
-def test_shape(names, salaries, cash_flow, columns):
-    data = DataFrame([names, salaries, cash_flow], columns=columns)
+def test_shape(names, salaries, cash_flow, index):
+    data = DataFrame([names, salaries, cash_flow], index=index)
 
     assert data.shape == (4, 3)
 
