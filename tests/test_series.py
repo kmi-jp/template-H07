@@ -21,3 +21,10 @@ Lukas Novak,Petr Pavel,Pavel Petr,Ludek Skocil
     assert list(data.values) == list(
         ["Lukas Novak", "Petr Pavel", "Pavel Petr", "Ludek Skocil"]
     )
+
+
+def test_file_not_found(tmp_path):
+    file = tmp_path / "file_that_does_not_exist"
+
+    with pytest.raises(FileNotFoundError):
+        Series.from_csv(filepath=file)

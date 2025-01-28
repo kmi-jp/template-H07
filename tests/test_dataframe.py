@@ -1,3 +1,5 @@
+import pytest
+
 from data.dataframe import DataFrame
 
 
@@ -25,3 +27,10 @@ user 4,Ludek Skocil,50000,1100"""
     assert data.values[2].index.labels == ["user 1", "user 2", "user 3", "user 4"]
 
     assert data.get("salary").apply(int).sum() == sum([20000, 300000, 20000, 50000])
+
+
+def test_file_not_found(tmp_path):
+    file = tmp_path / "file_that_does_not_exist"
+
+    with pytest.raises(FileNotFoundError):
+        DataFrame.from_csv(filepath=file)

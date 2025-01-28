@@ -1,6 +1,7 @@
 import pathlib
 import os
 import json
+import random
 
 expected = {
     "L01E01": 39,
@@ -24,10 +25,17 @@ expected = {
 
 
 def test_sum_points(script_runner):
-    script_runner.run("sum_points.py")
+    filename = "testfile" + str(random.randint(0, 1000)) + ".json"
+    output_file = pathlib.Path.cwd() / filename
+    try:
+        script_runner.run(["sum_points.py", filename])
 
-    output_file = pathlib.Path.cwd() / "output.json"
+        output_file = pathlib.Path.cwd() / filename
+        output_dict = json.loads(output_file.read_text())
 
-    output_dict = json.loads(output_file.read_text())
+        assert expected == output_dict
+    except:
+        assert False
+    finally:
+        os.remove(output_file)
 
-    assert expected == output_dict
