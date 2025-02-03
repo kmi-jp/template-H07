@@ -28,7 +28,7 @@ def test_sum_points(script_runner):
     filename = "testfile" + str(random.randint(0, 1000)) + ".json"
     output_file = pathlib.Path.cwd() / filename
     try:
-        script_runner.run(["sum_points.py", filename])
+        script_runner.run(["sum_points.py", "--output", filename])
 
         output_file = pathlib.Path.cwd() / filename
         output_dict = json.loads(output_file.read_text())

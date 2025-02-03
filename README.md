@@ -11,9 +11,9 @@ from data.dataframe import DataFrame
 
 df = DataFrame.from_csv(filepath=pathlib.Path.cwd() / "input.csv")
 ```
-## Soubor `sum_points.py`
+## Skript `sum_points.py`
 
-Pomocí balíčku `data` napište jednoduchý script `sum_points.py` (není součástí balíčku), který v adresáři `results` sečte zisk bodů z domácích úkolů předmětu KMI/JP uložených v souborech končící příponou `.csv` (pouze). Poté v pracovním adresáři vytvoří soubor, který obsahuje součty bodů přes jednotlivé úkoly. Jméno výstupního souboru bude možné předat pomocí argumentu z příkazové řádky při spuštění skriptu (tj. například příkazem `python3 sum_points.py output.json` uloží výsledek do `output.json`). Výsledný soubor pro testovací data má mít následující obsah:
+Pomocí balíčku `data` napište jednoduchý skript `sum_points.py` (není součástí balíčku), který v adresáři `results` sečte zisk bodů z domácích úkolů předmětu KMI/JP uložených v souborech končící příponou `.csv` (pouze). Poté v pracovním adresáři vytvoří soubor, který obsahuje součty bodů přes jednotlivé úkoly. Jméno výstupního souboru bude možné předat pomocí argumentu `--output` z příkazové řádky při spuštění skriptu (tj. například příkazem `python3 sum_points.py --output data.json` uloží výsledek do `data.json`). Výsledný soubor pro testovací data má mít následující obsah:
 
 ```json
 {"L01E01": 39, "L01E02": 38, "L01E03": 38, "L01E04PEP": 38, "L02E01": 36, "L02E02": 35, "L02E03": 35, "L02E04PEP": 37, "L03E01": 36, "L03E02": 31, "L04E01": 31, "L04E02": 32, "L04E03": 29, "L05E01": 31, "L05E02": 21, "L06E01": 17, "L06E02": 5}
